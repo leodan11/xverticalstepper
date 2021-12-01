@@ -74,12 +74,13 @@ in `your_activity.xml`
         app:stepper_opened_step_index="0"
         app:stepper_primary_color="@color/purple_500">
 
+	<!-- 1st Step -->
         <com.aghiadodeh.xstepper.StepContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:need_validation="true">
 
-			<!-- customize your step header -->
+	    <!-- customize your step header -->
             <com.aghiadodeh.xstepper.StepHeader
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -95,6 +96,7 @@ in `your_activity.xml`
 
             </com.aghiadodeh.xstepper.StepHeader>
 
+	    <!-- step body -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -107,12 +109,13 @@ in `your_activity.xml`
 
         </com.aghiadodeh.xstepper.StepContainer>
 
+	<!-- 2nd Step -->
         <com.aghiadodeh.xstepper.StepContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:need_validation="false"
             app:step_title="Step Title 2">
-
+	    <!-- step body -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
