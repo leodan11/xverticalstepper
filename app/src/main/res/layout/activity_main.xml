@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.aghiadodeh.xstepper.Stepper
+        android:id="@+id/stepper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/half_padding"
+        app:stepper_opened_step_index="0"
+        app:stepper_primary_color="@color/purple_500">
+
+        <com.aghiadodeh.xstepper.StepContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:step_title="Step Title 1"
+            app:need_validation="true"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <com.aghiadodeh.xstepper.StepHeader
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:layout_gravity="center"
+                    tools:ignore="HardcodedText" />
+
+            </com.aghiadodeh.xstepper.StepHeader>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:inputType="textPersonName"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </com.aghiadodeh.xstepper.StepContainer>
+
+        <com.aghiadodeh.xstepper.StepContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:step_title="Step Title 2"
+            app:need_validation="true"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <com.aghiadodeh.xstepper.StepHeader
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="4dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_email"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:layout_gravity="center"
+                    tools:ignore="HardcodedText" />
+
+            </com.aghiadodeh.xstepper.StepHeader>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </com.aghiadodeh.xstepper.StepContainer>
+
+        <com.aghiadodeh.xstepper.StepContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:step_title="Step Title 3"
+            app:need_validation="false">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Step 3"
+                tools:ignore="HardcodedText" />
+
+        </com.aghiadodeh.xstepper.StepContainer>
+
+    </com.aghiadodeh.xstepper.Stepper>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
