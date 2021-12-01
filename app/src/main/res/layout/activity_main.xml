@@ -21,7 +21,7 @@
             app:need_validation="true"
             android:paddingStart="8dp"
             android:paddingEnd="8dp">
-
+            <!-- customize your step header -->
             <com.aghiadodeh.xstepper.StepHeader
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

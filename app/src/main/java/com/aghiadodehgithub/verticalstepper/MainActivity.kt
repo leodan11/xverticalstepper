@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
 
         stepper.setListener(object : IStepper {
             override fun onStepOpening(step: Int) {
-                // Toast.makeText(this@MainActivity, "onStepOpening: $step", Toast.LENGTH_LONG).show()
+                // detect when step opening
             }
 
             override fun onWaitingForOpen(step: Int) {
-                // Toast.makeText(this@MainActivity, "onWaitingForOpen: $step", Toast.LENGTH_LONG).show()
+                // if step is need validation
                 when(stepper.activeStep) {
                     0 -> {
                         if (isNameValid(nameInput.text.toString())) {
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFinished() {
-                //  Toast.makeText(this@MainActivity, "onFinished", Toast.LENGTH_LONG).show()
+                //  when call `stepper.goToNextStep()` on last step
             }
         })
     }
