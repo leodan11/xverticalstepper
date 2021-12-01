@@ -14,7 +14,7 @@ and in your app.gradle:
 ``` groovy
 dependencies {
 	...
-	implementation 'com.github.aghiadodeh:xverticalstepper:1.0.0'
+	implementation 'com.github.aghiadodeh:xverticalstepper:1.0.1'
 }
 ```
 
@@ -40,6 +40,23 @@ Attribute Name | format | Default Value
 step_title  | string | " "
 need_validation  | boolean | false
 
+
+#### Functions
+
+`goToNextStep`: open next step, (no matter if need validation or not)
+
+`goToStep(index: Int, allowed: Boolean = false, firstAction: Boolean = false)`:
+* `index` is step index
+* `allowed`: set true when you want to open step anyway and the step is need validation
+* `firstAction`: set true to disable animation
+
+`removeStep(index: Int)`: hide step from stepper
+
+`restoreStep(index: Int)`: show step after hidden
+
+`isPreviousStepsCompleted(index: Int): Boolean`: detect if previous steps is valid
+## 
+
 in `your_activity.xml`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -61,7 +78,8 @@ in `your_activity.xml`
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:need_validation="true">
-            <!-- customize your step header -->
+
+			<!-- customize your step header -->
             <com.aghiadodeh.xstepper.StepHeader
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -115,7 +133,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-		val stepper: Stepper = findViewById(R.id.stepper)
+        val stepper: Stepper = findViewById(R.id.stepper)
         val nameInput: TextInputEditText = findViewById(R.id.name_input)
         val emailInput: TextInputEditText = findViewById(R.id.email_input)
 

@@ -158,7 +158,7 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) : Relat
         var boolean = true
         for (x in index downTo 0) {
             val model = stepModels[x]
-            if (model.view.needValidation) {
+            if (model.view.needValidation && model.appear) {
                 boolean = false
                 break
             }
