@@ -41,7 +41,7 @@ step_title  | string | " "
 need_validation  | boolean | false
 
 
-#### Functions
+#### Methods
 
 `goToNextStep`: open next step, (no matter if need validation or not)
 
