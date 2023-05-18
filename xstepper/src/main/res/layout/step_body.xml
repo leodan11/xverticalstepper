@@ -14,7 +14,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/darker_gray"
+            android:background="?attr/colorOnBackground"
             android:paddingBottom="@dimen/three_units"/>
 
     </LinearLayout>

@@ -1,9 +1,7 @@
 package com.aghiadodehgithub.verticalstepper
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.aghiadodeh.xstepper.Stepper
 import com.aghiadodeh.xstepper.interfaces.IStepper
 import com.google.android.material.textfield.TextInputEditText

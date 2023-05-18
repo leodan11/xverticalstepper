@@ -82,7 +82,7 @@ class KeyboardUtils(act: Activity, listener: SoftKeyboardToggleListener?) : OnGl
     fun toggleKeyboardVisibility(context: Context) {
         val inputMethodManager =
             context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager?.toggleSoftInput(
+        inputMethodManager.toggleSoftInput(
             InputMethodManager.SHOW_FORCED,
             0
         )
@@ -95,7 +95,7 @@ class KeyboardUtils(act: Activity, listener: SoftKeyboardToggleListener?) : OnGl
     fun forceCloseKeyboard(activeView: View) {
         val inputMethodManager =
             activeView.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager?.hideSoftInputFromWindow(
+        inputMethodManager.hideSoftInputFromWindow(
             activeView.windowToken,
             0
         )

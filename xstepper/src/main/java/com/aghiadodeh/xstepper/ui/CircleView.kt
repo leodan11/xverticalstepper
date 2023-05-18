@@ -236,13 +236,11 @@ class CircleView(context: Context, attrs: AttributeSet? = null) : View(context, 
     }
 
     private fun manageElevation() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            outlineProvider = if (!shadowEnable) object : ViewOutlineProvider() {
-                override fun getOutline(view: View?, outline: Outline?) {
-                    outline?.setOval(0, 0, heightCircle, heightCircle)
-                }
-            } else null
-        }
+        outlineProvider = if (!shadowEnable) object : ViewOutlineProvider() {
+            override fun getOutline(view: View?, outline: Outline?) {
+                outline?.setOval(0, 0, heightCircle, heightCircle)
+            }
+        } else null
     }
 
     private fun drawShadow() {
