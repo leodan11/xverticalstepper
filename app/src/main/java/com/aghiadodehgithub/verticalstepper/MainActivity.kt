@@ -2,8 +2,8 @@ package com.aghiadodehgithub.verticalstepper
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.aghiadodeh.xstepper.Stepper
-import com.aghiadodeh.xstepper.interfaces.IStepper
+import com.github.leodan11.xstepper.Stepper
+import com.github.leodan11.xstepper.interfaces.IStepper
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {

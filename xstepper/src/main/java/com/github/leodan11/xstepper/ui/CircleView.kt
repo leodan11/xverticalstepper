@@ -1,13 +1,18 @@
-package com.aghiadodeh.xstepper.ui
+package com.github.leodan11.xstepper.ui
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Outline
+import android.graphics.Paint
+import android.graphics.Shader
 import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewOutlineProvider
+import com.github.leodan11.xstepper.R
 import kotlin.math.min
-import com.aghiadodeh.xstepper.R
 
 class CircleView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
 

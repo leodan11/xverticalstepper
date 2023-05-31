@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="next">Siguiente</string>
+    <string name="discard_question">¿Descartar datos?</string>
+    <string name="info_will_be_lost">Toda la información que has dado se perderá</string>
+    <string name="discard_cancel">Cancelar</string>
+    <string name="discard">Desechar</string>
+    <string name="confirm_button">Confirmar datos</string>
+    <string name="last_step">Confirmación</string>
+    <string name="sending_data_message">Enviando datos…</string>
+    <string name="current_step_uncompleted_alert">Complete el campo actual antes de continuar</string>
+    <string name="down_previous">abajo_anterior</string>
+    <string name="down_next">abajo_siguiente</string>
+</resources>

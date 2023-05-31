@@ -1,4 +1,4 @@
-package com.aghiadodeh.xstepper.utils
+package com.github.leodan11.xstepper.utils
 
 import android.app.Activity
 import android.content.Context

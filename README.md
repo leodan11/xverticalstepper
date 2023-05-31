@@ -69,7 +69,7 @@ in `your_activity.xml`
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.aghiadodeh.xstepper.Stepper
+    <com.github.leodan11.xstepper.Stepper
         android:id="@+id/stepper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -77,13 +77,13 @@ in `your_activity.xml`
         app:stepper_primary_color="@color/purple_500">
 
 	<!-- 1st Step -->
-        <com.aghiadodeh.xstepper.StepContainer
+        <com.github.leodan11.xstepper.StepContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:need_validation="true">
 
 	    <!-- customize your step header -->
-            <com.aghiadodeh.xstepper.StepHeader
+            <com.github.leodan11.xstepper.StepHeader
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
@@ -96,7 +96,7 @@ in `your_activity.xml`
                     android:text="Name"
                     tools:ignore="HardcodedText" />
 
-            </com.aghiadodeh.xstepper.StepHeader>
+            </com.github.leodan11.xstepper.StepHeader>
 
 	    <!-- step body -->
             <com.google.android.material.textfield.TextInputLayout
@@ -109,10 +109,10 @@ in `your_activity.xml`
                     android:hint="Name" />
             </com.google.android.material.textfield.TextInputLayout>
 
-        </com.aghiadodeh.xstepper.StepContainer>
+        </com.github.leodan11.xstepper.StepContainer>
 
 	<!-- 2nd Step -->
-        <com.aghiadodeh.xstepper.StepContainer
+        <com.github.leodan11.xstepper.StepContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:need_validation="false"
@@ -123,9 +123,9 @@ in `your_activity.xml`
                 android:layout_height="wrap_content"
                 android:text="Step 2" />
 
-        </com.aghiadodeh.xstepper.StepContainer>
+        </com.github.leodan11.xstepper.StepContainer>
 
-    </com.aghiadodeh.xstepper.Stepper>
+    </com.github.leodan11.xstepper.Stepper>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```

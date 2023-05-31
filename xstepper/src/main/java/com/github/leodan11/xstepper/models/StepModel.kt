@@ -1,7 +1,7 @@
-package com.aghiadodeh.xstepper.models
+package com.github.leodan11.xstepper.models
 
-import com.aghiadodeh.xstepper.StepContainer
-import com.aghiadodeh.xstepper.StepHeader
+import com.github.leodan11.xstepper.StepContainer
+import com.github.leodan11.xstepper.StepHeader
 
 data class StepModel(
     var stepNumber: Int,

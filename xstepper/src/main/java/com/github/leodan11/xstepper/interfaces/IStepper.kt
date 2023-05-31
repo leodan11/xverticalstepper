@@ -1,4 +1,4 @@
-package com.aghiadodeh.xstepper.interfaces
+package com.github.leodan11.xstepper.interfaces
 
 interface IStepper {
     fun onStepOpening(step: Int) // new step opened

@@ -19,11 +19,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/half_padding">
 
-            <com.aghiadodeh.xstepper.ui.CircleView
+            <com.github.leodan11.xstepper.ui.CircleView
                 android:id="@+id/step_circleView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                app:cv_color="@android:color/darker_gray" />
+                app:cv_color="@android:color/darker_gray"
+                tools:ignore="TextSizeCheck" />
 
             <TextView
                 android:id="@+id/step_number"

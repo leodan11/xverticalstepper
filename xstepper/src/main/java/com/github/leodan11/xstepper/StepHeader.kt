@@ -1,4 +1,4 @@
-package com.aghiadodeh.xstepper
+package com.github.leodan11.xstepper
 
 import android.content.Context
 import android.util.AttributeSet

@@ -8,6 +8,7 @@ android {
     compileSdk 33
 
     defaultConfig {
+        namespace 'com.github.leodan11.xstepper'
         minSdk 23
         targetSdk 33
         versionCode 1
@@ -53,18 +54,18 @@ afterEvaluate {
                 from components.release
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'com.aghiadodeh'
+                groupId = 'com.github.leodan11'
                 artifactId = 'xstepper'
-                version = '1.0.1'
+                version = '1.0.4'
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
                 // Applies the component for the debug build variant.
                 from components.debug
 
-                groupId = 'com.aghiadodeh'
+                groupId = 'com.github.leodan11'
                 artifactId = 'xstepper'
-                version = '1.0.1'
+                version = '1.0.4'
             }
         }
     }

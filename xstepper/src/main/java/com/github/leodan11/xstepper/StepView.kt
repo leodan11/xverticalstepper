@@ -1,4 +1,4 @@
-package com.aghiadodeh.xstepper
+package com.github.leodan11.xstepper
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import com.aghiadodeh.xstepper.models.StepModel
-import com.aghiadodeh.xstepper.utils.Variables
-import com.aghiadodeh.xstepper.databinding.StepItemBinding
+import com.github.leodan11.xstepper.databinding.StepItemBinding
+import com.github.leodan11.xstepper.models.StepModel
+import com.github.leodan11.xstepper.utils.Variables
 
 internal class StepView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     val binding: StepItemBinding = StepItemBinding.inflate(LayoutInflater.from(context), this, true)

@@ -3,11 +3,11 @@
     <string name="discard_question">Discard data?</string>
     <string name="info_will_be_lost">All the information you have given will be lost</string>
     <string name="discard_cancel">Cancel</string>
-    <string name="discard">Discard</string>
     <string name="confirm_button">Confirm data</string>
     <string name="last_step">Confirmation</string>
-    <string name="sending_data_message">Sending data…</string>
     <string name="current_step_uncompleted_alert">Please complete the current field before continue</string>
     <string name="down_previous">down_previous</string>
     <string name="down_next">down_next</string>
+    <string name="discard">Discard</string>
+    <string name="sending_data_message">Sending data…</string>
 </resources>

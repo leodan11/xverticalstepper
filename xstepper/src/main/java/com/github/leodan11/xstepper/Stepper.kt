@@ -1,4 +1,4 @@
-package com.aghiadodeh.xstepper
+package com.github.leodan11.xstepper
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,11 +10,11 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.RelativeLayout
 import androidx.core.view.children
-import com.aghiadodeh.xstepper.databinding.StepperLayoutBinding
-import com.aghiadodeh.xstepper.interfaces.IStepper
-import com.aghiadodeh.xstepper.models.StepModel
-import com.aghiadodeh.xstepper.utils.Animations
-import com.aghiadodeh.xstepper.utils.Variables
+import com.github.leodan11.xstepper.databinding.StepperLayoutBinding
+import com.github.leodan11.xstepper.interfaces.IStepper
+import com.github.leodan11.xstepper.models.StepModel
+import com.github.leodan11.xstepper.utils.Animations
+import com.github.leodan11.xstepper.utils.Variables
 
 @SuppressLint("InflateParams")
 class Stepper(context: Context, private val attrs: AttributeSet? = null) : RelativeLayout(context, attrs) {
@@ -104,10 +104,6 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) : Relat
             if (index == stepViews.size - 1) iStepper?.onFinished()
         }
     }
-
-    /*fun stepCompleted(index: Int = activeStep) {
-        stepModels[index].completed = true
-    }*/
 
     private fun disableStep(index: Int, animate: Boolean = true) {
         if (animate)
