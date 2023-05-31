@@ -11,7 +11,6 @@ class StepHeader(context: Context, attrs: AttributeSet?) : LinearLayout(context,
         initAttributeSet(attrs)
     }
 
-    private fun initAttributeSet(attrs: AttributeSet?) {
+    private fun initAttributeSet(attrs: AttributeSet?) = Unit
 
-    }
 }

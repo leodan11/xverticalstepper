@@ -4,18 +4,17 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.RelativeLayout
 import androidx.core.view.children
+import com.aghiadodeh.xstepper.databinding.StepperLayoutBinding
 import com.aghiadodeh.xstepper.interfaces.IStepper
 import com.aghiadodeh.xstepper.models.StepModel
 import com.aghiadodeh.xstepper.utils.Animations
 import com.aghiadodeh.xstepper.utils.Variables
-import com.aghiadodeh.xstepper.databinding.StepperLayoutBinding
 
 @SuppressLint("InflateParams")
 class Stepper(context: Context, private val attrs: AttributeSet? = null) : RelativeLayout(context, attrs) {
