@@ -1,4 +1,6 @@
 # Android Vertical Stepper
+[![](https://jitpack.io/v/leodan11/xverticalstepper.svg)](https://jitpack.io/#leodan11/xverticalstepper)
+[![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
 
 ### Implementation
 add `maven { url 'https://jitpack.io' }` to build.gradle in your project:
@@ -14,7 +16,7 @@ and in your app.gradle:
 ``` groovy
 dependencies {
 	...
-	implementation 'com.github.aghiadodeh:xverticalstepper:1.0.1'
+	implementation 'com.github.leodan11:xverticalstepper:Tag'
 }
 ```
 
