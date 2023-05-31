@@ -20,11 +20,10 @@ dependencies {
 }
 ```
 
+# Credits
 
-### Overview
-![](https://s8.gifyu.com/images/ezgif-7-8f1b38f22ddd.gif)
-
-## 
+This is just an updated version of [Android Vertical Stepper](https://github.com/aghiadodeh/xverticalstepper) and applying some of the active pull requests in it. 
+Credits go completely to its creator and the people who has contributed with those pull requests.
 
 ### Usage:
 
@@ -57,7 +56,9 @@ need_validation  | boolean | false
 `restoreStep(index: Int)`: show step after hidden
 
 `isPreviousStepsCompleted(index: Int): Boolean`: detect if previous steps is valid
-## 
+##
+
+### Overview
 
 in `your_activity.xml`
 ```xml
