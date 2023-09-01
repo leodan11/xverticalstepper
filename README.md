@@ -3,22 +3,56 @@
 [![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=23)
 
 ### Implementation
-add `maven { url 'https://jitpack.io' }` to build.gradle in your project:
-``` groovy
-allprojects {
+
+<details>
+  <summary>Gradle</summary>
+
+- Step 1. Add the JitPack repository to your build file
+
+  Add it in your root build.gradle at the end of repositories:
+
+  ```gradle
+  allprojects {
     repositories {
-		...
-        maven { url 'https://jitpack.io' }
+      ...
+      maven { url 'https://jitpack.io' }
+      }
+  }
+  ```
+
+- Step 2. Add the dependency
+  
+  ```gradle
+  dependencies {
+    implementation 'com.github.leodan11:xverticalstepper:Tag'
+  }
+  ```
+  
+</details>
+
+<details>
+    <summary>Kotlin</summary>
+
+  - Step 1. Add the JitPack repository to your build file.
+
+    Add it in your root build.gradle at the end of repositories:
+
+    ```kotlin
+    repositories {
+        ...
+        maven(url = "https://jitpack.io")
     }
-}
-```
-and in your app.gradle:
-``` groovy
-dependencies {
-	...
-	implementation 'com.github.leodan11:xverticalstepper:Tag'
-}
-```
+    ```
+
+- Step 2. Add the dependency
+  
+    ```kotlin
+    dependencies {
+      implementation("com.github.leodan11:xverticalstepper:$tag")
+    }
+    ```
+  
+</details>
 
 # Credits
 
