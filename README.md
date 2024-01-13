@@ -78,11 +78,11 @@ need_validation  | boolean | false
 
 #### Methods
 
-`goToNextStep`: open next step, (no matter if need validation or not)
+`goToNextStep`: open next step, (no matter if you need validation or not)
 
 `goToStep(index: Int, allowed: Boolean = false, firstAction: Boolean = false)`:
 * `index` is step index
-* `allowed`: set true when you want to open step anyway and the step is need validation
+* `allowed`: set true when you want to open a step anyway and the step is need validation
 * `firstAction`: set true to disable animation
 
 `removeStep(index: Int)`: hide step from stepper
@@ -183,7 +183,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onWaitingForOpen(step: Int) {
-                // if step is need validation
+                // if a step is need validation
                 when(stepper.activeStep) {
                     0 -> {
                         if (emailInput.text.toString().isValidEmail()) {

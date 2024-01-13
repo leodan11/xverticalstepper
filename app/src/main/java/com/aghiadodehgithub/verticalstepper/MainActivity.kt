@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onWaitingForOpen(step: Int) {
-                // if step is need validation
+                // if a step is need validation
                 when(stepper.activeStep) {
                     0 -> {
                         if (isNameValid(nameInput.text.toString())) {

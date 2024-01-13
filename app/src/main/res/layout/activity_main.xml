@@ -17,10 +17,10 @@
         <com.github.leodan11.xstepper.StepContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:step_title="Step Title 1"
-            app:need_validation="true"
             android:paddingStart="8dp"
-            android:paddingEnd="8dp">
+            android:paddingEnd="8dp"
+            app:need_validation="true"
+            app:step_title="Step Title 1">
             <!-- customize your step header -->
             <com.github.leodan11.xstepper.StepHeader
                 android:layout_width="match_parent"
@@ -31,8 +31,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name"
                     android:layout_gravity="center"
+                    android:text="Name"
                     tools:ignore="HardcodedText" />
 
             </com.github.leodan11.xstepper.StepHeader>
@@ -56,10 +56,10 @@
         <com.github.leodan11.xstepper.StepContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:step_title="Step Title 2"
-            app:need_validation="true"
             android:paddingStart="8dp"
-            android:paddingEnd="8dp">
+            android:paddingEnd="8dp"
+            app:need_validation="true"
+            app:step_title="Step Title 2">
 
             <com.github.leodan11.xstepper.StepHeader
                 android:layout_width="match_parent"
@@ -101,8 +101,8 @@
         <com.github.leodan11.xstepper.StepContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:step_title="Step Title 3"
-            app:need_validation="false">
+            app:need_validation="false"
+            app:step_title="Step Title 3">
 
             <TextView
                 android:layout_width="match_parent"

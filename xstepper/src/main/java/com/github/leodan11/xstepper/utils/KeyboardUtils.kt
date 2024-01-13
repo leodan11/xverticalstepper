@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.github.leodan11.xstepper.utils
 
 import android.app.Activity
@@ -52,7 +54,7 @@ class KeyboardUtils(act: Activity, listener: SoftKeyboardToggleListener?) : OnGl
         listener: SoftKeyboardToggleListener
     ) {
         removeKeyboardToggleListener(listener)
-        sListenerMap.put(listener, KeyboardUtils(act, listener))
+        sListenerMap[listener] = KeyboardUtils(act, listener)
     }
 
     /**

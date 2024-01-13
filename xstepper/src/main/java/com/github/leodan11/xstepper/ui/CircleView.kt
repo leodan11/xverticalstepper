@@ -186,7 +186,7 @@ class CircleView(context: Context, attrs: AttributeSet? = null) : View(context, 
             circleCenterWithBorder - margeWithShadowRadius,
             paintBorder
         )
-        // Draw Circle background
+        // Draw a Circle background
         canvas.drawCircle(
             circleCenterWithBorder,
             circleCenterWithBorder,

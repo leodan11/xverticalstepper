@@ -83,8 +83,8 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) : Relat
     }
 
     fun goToNextStep() {
-        if (activeStep <= stepViews.size - 1) { // if active step is not last step
-            for (x in activeStep + 1 until stepModels.size) { // get first view with (appear == true)
+        if (activeStep <= stepViews.size - 1) { // if an active step is not the last step
+            for (x in activeStep + 1 until stepModels.size) { // get the first view with (appear == true)
                 if (stepModels[x].appear) {
                     goToStep(index = x, allowed = true)
                     break
@@ -146,7 +146,7 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) : Relat
     private val iStepView = StepView.IStepView { stepModel ->
         val index = stepModels.indexOf(stepModel)
         if (index < activeStep || isPreviousStepsCompleted(index)) goToStep(index)
-        else iStepper?.onWaitingForOpen(index) // check if current step is completed before go to other step
+        else iStepper?.onWaitingForOpen(index) // check if a current step is completed before go to another step
     }
 
     fun isPreviousStepsCompleted(index: Int): Boolean {
