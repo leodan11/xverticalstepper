@@ -43,9 +43,9 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) : Relat
     @SuppressLint("CustomViewStyleable")
     private fun init(context: Context) {
         // Load the styled attributes and set their properties
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.StepperView, 0, 0)
-        primaryColor = attributes.getColor(R.styleable.StepperView_stepper_primary_color, Color.GRAY)
-        defaultStepIndex = attributes.getInt(R.styleable.StepperView_stepper_opened_step_index, 0)
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.Stepper, 0, 0)
+        primaryColor = attributes.getColor(R.styleable.Stepper_stepper_primary_color, Color.GRAY)
+        defaultStepIndex = attributes.getInt(R.styleable.Stepper_stepper_opened_step_index, 0)
         Variables.primaryColor = primaryColor
         attributes.recycle()
     }

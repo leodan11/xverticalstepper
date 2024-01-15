@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="StepperView">
+    <declare-styleable name="Stepper">
         <attr name="stepper_primary_color" format="color" />
         <attr name="stepper_opened_step_index" format="integer" />
     </declare-styleable>
