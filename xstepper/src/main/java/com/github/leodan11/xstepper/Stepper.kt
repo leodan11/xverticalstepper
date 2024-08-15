@@ -17,8 +17,10 @@ import com.github.leodan11.xstepper.utils.Animations
 import com.github.leodan11.xstepper.utils.Variables
 
 @SuppressLint("InflateParams")
-class Stepper(context: Context, private val attrs: AttributeSet? = null) : RelativeLayout(context, attrs) {
-    private val binding: StepperLayoutBinding = StepperLayoutBinding.inflate(LayoutInflater.from(context), this, true)
+class Stepper(context: Context, private val attrs: AttributeSet? = null) :
+    RelativeLayout(context, attrs) {
+    private val binding: StepperLayoutBinding =
+        StepperLayoutBinding.inflate(LayoutInflater.from(context), this, true)
     private var iStepper: IStepper? = null
     private var stepModels = ArrayList<StepModel>()
     private var stepViews = ArrayList<StepView>()
@@ -58,8 +60,13 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) : Relat
         for (x in 0 until childCount) {
             val child = children.elementAt(x)
             if (child is StepContainer) {
-                val stepHeader = child.children.find { it is StepHeader }?.also { view -> child.removeView(view) }
-                val stepModel = StepModel(stepNumber = children.indexOf(child), view = child, header = stepHeader as StepHeader?)
+                val stepHeader = child.children.find { it is StepHeader }
+                    ?.also { view -> child.removeView(view) }
+                val stepModel = StepModel(
+                    stepNumber = children.indexOf(child),
+                    view = child,
+                    header = stepHeader as StepHeader?
+                )
                 stepModels.add(stepModel)
             }
         }
@@ -94,7 +101,8 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) : Relat
     }
 
     fun goToStep(index: Int, allowed: Boolean = false, firstAction: Boolean = false) {
-        val boolean = activeStep > index || firstAction || !stepModels[activeStep].view.needValidation || allowed
+        val boolean =
+            activeStep > index || firstAction || !stepModels[activeStep].view.needValidation || allowed
         if (boolean) {
             previousStep = activeStep
             activeStep = index
@@ -130,6 +138,14 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) : Relat
         stepModels[index].appear = true
         stepViews[index].binding.root.visibility = View.VISIBLE
         reOrderSteps()
+    }
+
+    fun completedStep(index: Int) {
+        try {
+            stepViews[index].stepCompleted()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     @SuppressLint("SetTextI18n")

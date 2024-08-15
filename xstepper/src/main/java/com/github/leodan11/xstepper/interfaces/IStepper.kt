@@ -1,7 +1,21 @@
 package com.github.leodan11.xstepper.interfaces
 
 interface IStepper {
-    fun onStepOpening(step: Int) // new step opened
-    fun onWaitingForOpen(step: Int) // check if a current step is completed before go to another step
-    fun onFinished() // current step is last step
+    /**
+     * New step opened
+     */
+    fun onStepOpening(step: Int): Unit = Unit
+
+    /**
+     * Check if a current step is completed before go to another step
+     *
+     * @param step [Int]
+     */
+    fun onWaitingForOpen(step: Int)
+
+    /**
+     * Current step is last step
+     */
+    fun onFinished(): Unit = Unit
+
 }
