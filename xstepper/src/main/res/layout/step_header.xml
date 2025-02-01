@@ -21,10 +21,8 @@
 
             <com.github.leodan11.xstepper.ui.CircleView
                 android:id="@+id/step_circleView"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:cv_color="@android:color/darker_gray"
-                tools:ignore="TextSizeCheck" />
+                android:layout_width="@dimen/circle_step_space"
+                android:layout_height="@dimen/circle_step_space" />
 
             <TextView
                 android:id="@+id/step_number"
@@ -33,7 +31,6 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:textColor="?attr/colorSurface"
                 android:textSize="@dimen/medium_text" />
 
             <ImageView

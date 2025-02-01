@@ -18,4 +18,5 @@
     <dimen name="button_padding">10dp</dimen>
     <dimen name="standard_padding">8dip</dimen>
     <dimen name="half_padding">4dip</dimen>
+    <dimen name="circle_step_space">32dp</dimen>
 </resources>

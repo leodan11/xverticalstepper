@@ -1,9 +1,9 @@
 package com.github.leodan11.xstepper
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -16,21 +16,40 @@ import com.github.leodan11.xstepper.models.StepModel
 import com.github.leodan11.xstepper.utils.Animations
 import com.github.leodan11.xstepper.utils.Variables
 
-@SuppressLint("InflateParams")
-class Stepper(context: Context, private val attrs: AttributeSet? = null) :
-    RelativeLayout(context, attrs) {
-    private val binding: StepperLayoutBinding =
-        StepperLayoutBinding.inflate(LayoutInflater.from(context), this, true)
+class Stepper : RelativeLayout {
+    private lateinit var binding: StepperLayoutBinding
     private var iStepper: IStepper? = null
     private var stepModels = ArrayList<StepModel>()
     private var stepViews = ArrayList<StepView>()
     private var primaryColor = Color.GRAY
+    private var textIndicatorColor = Color.WHITE
     private var defaultStepIndex = -1
     var activeStep = 0
     var previousStep = 0
 
-    init {
-        init(context)
+    constructor(context: Context) : super(context) {
+        init(context, null, 0, 0)
+    }
+
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init(context, attrs, 0, 0)
+    }
+
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+        init(context, attrs, defStyleAttr, 0)
+    }
+
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) : super(context, attrs, defStyleAttr, defStyleRes) {
+        init(context, attrs, defStyleAttr, defStyleRes)
     }
 
     override fun onFinishInflate() {
@@ -42,14 +61,22 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) :
         super.onViewAdded(child)
     }
 
-    @SuppressLint("CustomViewStyleable")
-    private fun init(context: Context) {
+    private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         // Load the styled attributes and set their properties
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.Stepper, 0, 0)
-        primaryColor = attributes.getColor(R.styleable.Stepper_stepper_primary_color, Color.GRAY)
-        defaultStepIndex = attributes.getInt(R.styleable.Stepper_stepper_opened_step_index, 0)
-        Variables.primaryColor = primaryColor
-        attributes.recycle()
+        val attributes =
+            context.obtainStyledAttributes(attrs, R.styleable.Stepper, defStyleAttr, defStyleRes)
+        try {
+            binding = StepperLayoutBinding.inflate(LayoutInflater.from(context), this, true)
+            primaryColor = attributes.getColor(R.styleable.Stepper_stepper_color_indicator, defaultColorPrimary(context))
+            textIndicatorColor = attributes.getColor(R.styleable.Stepper_stepper_color_text_indicator, defaultTextColor(context))
+            defaultStepIndex = attributes.getInt(R.styleable.Stepper_stepper_opened_step_index, 0)
+            Variables.primaryColor = primaryColor
+            Variables.textIndicatorColor = textIndicatorColor
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            attributes.recycle()
+        }
     }
 
     fun setListener(iStepper: IStepper) {
@@ -148,12 +175,12 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) :
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private fun reOrderSteps() {
         var stepNumber = 0
         for (x in 0 until stepModels.size) {
             if (stepModels[x].appear) {
-                stepViews[x].binding.stepHeader.stepNumber.text = "${stepNumber + 1}"
+                stepViews[x].binding.stepHeader.stepNumber.text =
+                    context.getString(R.string.integer_value, (stepNumber + 1))
                 stepModels[x].stepNumber = stepNumber++
             }
         }
@@ -176,4 +203,17 @@ class Stepper(context: Context, private val attrs: AttributeSet? = null) :
         }
         return boolean
     }
+
+    private fun defaultColorPrimary(context: Context): Int {
+        val typedValue = TypedValue()
+        context.theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
+        return typedValue.data
+    }
+
+    private fun defaultTextColor(context: Context): Int {
+        val typedValue = TypedValue()
+        context.theme.resolveAttribute(android.R.attr.colorBackground, typedValue, true)
+        return typedValue.data
+    }
+
 }

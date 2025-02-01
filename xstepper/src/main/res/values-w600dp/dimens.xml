@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="circle_step_space">40dp</dimen>
+</resources>

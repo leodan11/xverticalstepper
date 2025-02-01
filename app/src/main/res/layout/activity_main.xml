@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/half_padding"
-        app:stepper_opened_step_index="0"
-        app:stepper_primary_color="@color/purple_500">
+        app:stepper_color_indicator="?attr/colorPrimary"
+        app:stepper_color_text_indicator="?attr/colorSurface">
 
         <com.github.leodan11.xstepper.StepContainer
             android:layout_width="match_parent"

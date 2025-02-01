@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="Stepper">
-        <attr name="stepper_primary_color" format="color" />
+        <attr name="stepper_color_indicator" format="color" />
+        <attr name="stepper_color_text_indicator" format="color" />
         <attr name="stepper_opened_step_index" format="integer" />
     </declare-styleable>
 
@@ -42,4 +44,5 @@
             <flag name="end" value="5" />
         </attr>
     </declare-styleable>
+
 </resources>

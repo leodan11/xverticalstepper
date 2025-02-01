@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 package com.github.leodan11.xstepper.utils
 
 import android.app.Activity
@@ -12,7 +10,6 @@ import android.view.inputmethod.InputMethodManager
 import java.util.*
 
 class KeyboardUtils(act: Activity, listener: SoftKeyboardToggleListener?) : OnGlobalLayoutListener {
-    private val MAGIC_NUMBER = 200
 
     private var mCallback: SoftKeyboardToggleListener? = listener
     private var mRootView: View? = null
@@ -84,10 +81,7 @@ class KeyboardUtils(act: Activity, listener: SoftKeyboardToggleListener?) : OnGl
     fun toggleKeyboardVisibility(context: Context) {
         val inputMethodManager =
             context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.toggleSoftInput(
-            InputMethodManager.SHOW_FORCED,
-            0
-        )
+        inputMethodManager.showSoftInput(mRootView, 0)
     }
 
     /**
@@ -108,12 +102,10 @@ class KeyboardUtils(act: Activity, listener: SoftKeyboardToggleListener?) : OnGl
         mRootView!!.viewTreeObserver.removeOnGlobalLayoutListener(this)
     }
 
-   /* fun KeyboardUtils(act: Activity, listener: SoftKeyboardToggleListener?) {
-        mCallback = listener
-        mRootView =
-            (act.findViewById<View>(R.id.content) as ViewGroup).getChildAt(0)
-        mRootView!!.getViewTreeObserver().addOnGlobalLayoutListener(this)
-        mScreenDensity = act.resources.displayMetrics.density
+    companion object {
+
+        private const val MAGIC_NUMBER = 200
+
     }
-*/
+
 }

@@ -14,12 +14,7 @@ import android.view.ViewOutlineProvider
 import com.github.leodan11.xstepper.R
 import kotlin.math.min
 
-class CircleView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
-
-    companion object {
-        private const val DEFAULT_BORDER_WIDTH = 4f
-        private const val DEFAULT_SHADOW_RADIUS = 8.0f
-    }
+class CircleView : View {
 
     // Properties
     private val paint: Paint = Paint().apply { isAntiAlias = true }
@@ -107,53 +102,90 @@ class CircleView(context: Context, attrs: AttributeSet? = null) : View(context, 
         }
     //endregion
 
-    init {
-        init(context, attrs)
+    constructor(context: Context) : super(context) {
+        init(context, null, 0, 0)
     }
 
-    private fun init(context: Context, attrs: AttributeSet?) {
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init(context, attrs, 0, 0)
+    }
+
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+        init(context, attrs, defStyleAttr, 0)
+    }
+
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) : super(context, attrs, defStyleAttr, defStyleRes) {
+        init(context, attrs, defStyleAttr, defStyleRes)
+    }
+
+
+    private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         // Load the styled attributes and set their properties
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.CircleView, 0, 0)
-
-        // Init Circle Color
-        circleColor = attributes.getColor(R.styleable.CircleView_cv_color, Color.WHITE)
-        attributes.getColor(R.styleable.CircleView_cv_color_start, 0)
-            .also { if (it != 0) circleColorStart = it }
-        attributes.getColor(R.styleable.CircleView_cv_color_end, 0)
-            .also { if (it != 0) circleColorEnd = it }
-        circleColorDirection = attributes.getInteger(
-            R.styleable.CircleView_cv_color_direction,
-            circleColorDirection.value
-        ).toGradientDirection()
-
-        // Init Border
-        if (attributes.getBoolean(R.styleable.CircleView_cv_border, false)) {
-            val defaultBorderSize = DEFAULT_BORDER_WIDTH * resources.displayMetrics.density
-            borderWidth =
-                attributes.getDimension(R.styleable.CircleView_cv_border_width, defaultBorderSize)
-            borderColor = attributes.getColor(R.styleable.CircleView_cv_border_color, borderColor)
-            attributes.getColor(R.styleable.CircleView_cv_border_color_start, 0)
-                .also { if (it != 0) borderColorStart = it }
-            attributes.getColor(R.styleable.CircleView_cv_border_color_end, 0)
-                .also { if (it != 0) borderColorEnd = it }
-            borderColorDirection = attributes.getInteger(
-                R.styleable.CircleView_cv_border_color_direction,
-                borderColorDirection.value
+        val attributes =
+            context.obtainStyledAttributes(attrs, R.styleable.CircleView, defStyleAttr, defStyleRes)
+        try {
+            // Init Circle Color
+            circleColor = attributes.getColor(R.styleable.CircleView_cv_color, Color.WHITE)
+            attributes.getColor(R.styleable.CircleView_cv_color_start, 0)
+                .also { if (it != 0) circleColorStart = it }
+            attributes.getColor(R.styleable.CircleView_cv_color_end, 0)
+                .also { if (it != 0) circleColorEnd = it }
+            circleColorDirection = attributes.getInteger(
+                R.styleable.CircleView_cv_color_direction,
+                circleColorDirection.value
             ).toGradientDirection()
-        }
 
-        // Init Shadow
-        shadowEnable = attributes.getBoolean(R.styleable.CircleView_cv_shadow, shadowEnable)
-        if (shadowEnable) {
-            shadowColor = attributes.getColor(R.styleable.CircleView_cv_shadow_color, shadowColor)
-            shadowGravity =
-                attributes.getInteger(R.styleable.CircleView_cv_shadow_gravity, shadowGravity.value)
-                    .toShadowGravity()
-            shadowRadius =
-                attributes.getFloat(R.styleable.CircleView_cv_shadow_radius, DEFAULT_SHADOW_RADIUS)
-        }
+            // Init Border
+            if (attributes.getBoolean(R.styleable.CircleView_cv_border, false)) {
+                val defaultBorderSize = DEFAULT_BORDER_WIDTH * resources.displayMetrics.density
+                borderWidth =
+                    attributes.getDimension(
+                        R.styleable.CircleView_cv_border_width,
+                        defaultBorderSize
+                    )
+                borderColor =
+                    attributes.getColor(R.styleable.CircleView_cv_border_color, borderColor)
+                attributes.getColor(R.styleable.CircleView_cv_border_color_start, 0)
+                    .also { if (it != 0) borderColorStart = it }
+                attributes.getColor(R.styleable.CircleView_cv_border_color_end, 0)
+                    .also { if (it != 0) borderColorEnd = it }
+                borderColorDirection = attributes.getInteger(
+                    R.styleable.CircleView_cv_border_color_direction,
+                    borderColorDirection.value
+                ).toGradientDirection()
+            }
 
-        attributes.recycle()
+            // Init Shadow
+            shadowEnable = attributes.getBoolean(R.styleable.CircleView_cv_shadow, shadowEnable)
+            if (shadowEnable) {
+                shadowColor =
+                    attributes.getColor(R.styleable.CircleView_cv_shadow_color, shadowColor)
+                shadowGravity =
+                    attributes.getInteger(
+                        R.styleable.CircleView_cv_shadow_gravity,
+                        shadowGravity.value
+                    )
+                        .toShadowGravity()
+                shadowRadius =
+                    attributes.getFloat(
+                        R.styleable.CircleView_cv_shadow_radius,
+                        DEFAULT_SHADOW_RADIUS
+                    )
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            attributes.recycle()
+        }
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -260,6 +292,7 @@ class CircleView(context: Context, attrs: AttributeSet? = null) : View(context, 
             ShadowGravity.CENTER -> {
                 /*dx, dy = 0.0f*/
             }
+
             ShadowGravity.TOP -> dy = -shadowRadius / 2
             ShadowGravity.BOTTOM -> dy = shadowRadius / 2
             ShadowGravity.START -> dx = -shadowRadius / 2
@@ -327,6 +360,11 @@ class CircleView(context: Context, attrs: AttributeSet? = null) : View(context, 
         RIGHT_TO_LEFT(2),
         TOP_TO_BOTTOM(3),
         BOTTOM_TO_TOP(4)
+    }
+
+    companion object {
+        private const val DEFAULT_BORDER_WIDTH = 4f
+        private const val DEFAULT_SHADOW_RADIUS = 8.0f
     }
 
 }

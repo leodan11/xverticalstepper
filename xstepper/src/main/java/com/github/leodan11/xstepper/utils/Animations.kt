@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 
 // http://stackoverflow.com/a/13381228/3891038 + modifications
 object Animations {
+
     fun slideDown(v: View) {
         if (v.visibility != View.VISIBLE) {
             v.measure(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
@@ -78,4 +79,5 @@ object Animations {
         //v.getLayoutParams().height = newHeight;
         v.layoutParams = LinearLayout.LayoutParams(v.layoutParams.width, newHeight)
     }
+
 }
