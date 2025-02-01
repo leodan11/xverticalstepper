@@ -8,11 +8,13 @@
 
     <com.github.leodan11.xstepper.Stepper
         android:id="@+id/stepper"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:padding="@dimen/half_padding"
-        app:stepper_color_indicator="?attr/colorPrimary"
-        app:stepper_color_text_indicator="?attr/colorSurface">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.github.leodan11.xstepper.StepContainer
             android:layout_width="match_parent"

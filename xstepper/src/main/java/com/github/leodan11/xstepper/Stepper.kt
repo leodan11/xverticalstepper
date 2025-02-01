@@ -3,7 +3,6 @@ package com.github.leodan11.xstepper
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -67,8 +66,8 @@ class Stepper : RelativeLayout {
             context.obtainStyledAttributes(attrs, R.styleable.Stepper, defStyleAttr, defStyleRes)
         try {
             binding = StepperLayoutBinding.inflate(LayoutInflater.from(context), this, true)
-            primaryColor = attributes.getColor(R.styleable.Stepper_stepper_color_indicator, defaultColorPrimary(context))
-            textIndicatorColor = attributes.getColor(R.styleable.Stepper_stepper_color_text_indicator, defaultTextColor(context))
+            primaryColor = attributes.getColor(R.styleable.Stepper_stepper_color_indicator, primaryColor)
+            textIndicatorColor = attributes.getColor(R.styleable.Stepper_stepper_color_text_indicator, textIndicatorColor)
             defaultStepIndex = attributes.getInt(R.styleable.Stepper_stepper_opened_step_index, 0)
             Variables.primaryColor = primaryColor
             Variables.textIndicatorColor = textIndicatorColor
@@ -202,18 +201,6 @@ class Stepper : RelativeLayout {
             }
         }
         return boolean
-    }
-
-    private fun defaultColorPrimary(context: Context): Int {
-        val typedValue = TypedValue()
-        context.theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
-        return typedValue.data
-    }
-
-    private fun defaultTextColor(context: Context): Int {
-        val typedValue = TypedValue()
-        context.theme.resolveAttribute(android.R.attr.colorBackground, typedValue, true)
-        return typedValue.data
     }
 
 }
