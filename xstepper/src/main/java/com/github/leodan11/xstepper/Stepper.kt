@@ -166,14 +166,6 @@ class Stepper : RelativeLayout {
         reOrderSteps()
     }
 
-    fun completedStep(index: Int) {
-        try {
-            stepViews[index].stepCompleted()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
     private fun reOrderSteps() {
         var stepNumber = 0
         for (x in 0 until stepModels.size) {
