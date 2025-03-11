@@ -5,6 +5,7 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.Transformation
 import android.widget.LinearLayout
+import androidx.core.view.isVisible
 
 // http://stackoverflow.com/a/13381228/3891038 + modifications
 object Animations {
@@ -45,7 +46,7 @@ object Animations {
     }
 
     fun slideUp(v: View) {
-        if (v.visibility == View.VISIBLE) {
+        if (v.isVisible) {
             val initialHeight = v.measuredHeight
             val a: Animation = object : Animation() {
                 override fun applyTransformation(interpolatedTime: Float, t: Transformation) {
