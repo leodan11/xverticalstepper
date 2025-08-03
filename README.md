@@ -51,7 +51,8 @@ Credits go completely to its creator and the people who has contributed with tho
 Attribute Name | format | Default Value
 ------------- | ------------- | -------------
 stepper_opened_step_index  | integer | 0
-stepper_primary_color  | color | Color.GRAY
+stepper_color_indicator  | color | Color.GRAY
+stepper_color_text_indicator  | color | Color.WHITE
 
 #### StepContainer
 
