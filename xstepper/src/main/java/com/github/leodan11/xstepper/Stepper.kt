@@ -156,13 +156,13 @@ class Stepper : RelativeLayout {
 
     fun removeStep(index: Int) {
         stepModels[index].appear = false
-        stepViews[index].binding.root.visibility = View.GONE
+        stepViews[index].binding.root.visibility = GONE
         reOrderSteps()
     }
 
     fun restoreStep(index: Int) {
         stepModels[index].appear = true
-        stepViews[index].binding.root.visibility = View.VISIBLE
+        stepViews[index].binding.root.visibility = VISIBLE
         reOrderSteps()
     }
 
