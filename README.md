@@ -75,6 +75,8 @@ need_validation  | boolean | false
 
 `restoreStep(index: Int)`: show step after hidden
 
+`setTitle(index: Int, value: String)` or `setTitle(index: Int, @StringRes value: Int)`: Rename dynamically
+
 `isPreviousStepsCompleted(index: Int): Boolean`: detect if previous steps is valid
 ##
 
