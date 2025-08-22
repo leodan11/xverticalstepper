@@ -1,120 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <com.github.leodan11.xstepper.Stepper
-        android:id="@+id/stepper"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:padding="@dimen/half_padding"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
 
-        <com.github.leodan11.xstepper.StepContainer
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            app:need_validation="true"
-            app:step_title="Step Title 1">
-            <!-- customize your step header -->
-            <com.github.leodan11.xstepper.StepHeader
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="4dp">
+            android:layout_height="?attr/actionBarSize" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Name"
-                    tools:ignore="HardcodedText" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-            </com.github.leodan11.xstepper.StepHeader>
+    <include layout="@layout/content_main" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/name_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Name"
-                    android:inputType="textPersonName"
-                    tools:ignore="HardcodedText,VisualLintTextFieldSize,TextContrastCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </com.github.leodan11.xstepper.StepContainer>
-
-        <com.github.leodan11.xstepper.StepContainer
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            app:need_validation="true"
-            app:step_title="Step Title 2">
-
-            <com.github.leodan11.xstepper.StepHeader
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:padding="4dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_email"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Email"
-                    tools:ignore="HardcodedText,TextContrastCheck" />
-
-            </com.github.leodan11.xstepper.StepHeader>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    tools:ignore="HardcodedText" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </com.github.leodan11.xstepper.StepContainer>
-
-        <com.github.leodan11.xstepper.StepContainer
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:need_validation="false"
-            app:step_title="Step Title 3">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Step 3"
-                tools:ignore="HardcodedText" />
-
-        </com.github.leodan11.xstepper.StepContainer>
-
-    </com.github.leodan11.xstepper.Stepper>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

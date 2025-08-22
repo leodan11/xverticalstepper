@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.github.leodan11.xstepper.databinding.StepItemBinding
@@ -24,31 +22,16 @@ internal class StepView : FrameLayout {
         initAttributeSet(context, attrs, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         initAttributeSet(context, attrs, defStyleAttr, 0)
     }
 
-    constructor(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
         initAttributeSet(context, attrs, defStyleAttr, defStyleRes)
     }
 
-    private fun initAttributeSet(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) {
-        val binding: StepItemBinding =
-            StepItemBinding.inflate(LayoutInflater.from(context), this, true)
+    private fun initAttributeSet(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+        val binding: StepItemBinding = StepItemBinding.inflate(LayoutInflater.from(context), this, true)
         this.binding = binding
     }
 
@@ -63,20 +46,26 @@ internal class StepView : FrameLayout {
 
     fun stepOpened() {
         binding.stepHeader.root.alpha = 1F
-        binding.stepHeader.stepCheckIcon.visibility = View.GONE
-        binding.stepHeader.stepNumber.visibility = View.VISIBLE
+        binding.stepHeader.stepCheckIcon.visibility = GONE
+        binding.stepHeader.stepNumber.visibility = VISIBLE
     }
 
     fun stepClosed() {
         binding.stepHeader.root.alpha = Variables.ALPHA_OF_DISABLED_ELEMENTS
-        binding.stepHeader.stepCheckIcon.visibility = View.GONE
-        binding.stepHeader.stepNumber.visibility = View.VISIBLE
+        binding.stepHeader.stepCheckIcon.visibility = GONE
+        binding.stepHeader.stepNumber.visibility = VISIBLE
     }
 
     fun stepCompleted() {
         binding.stepHeader.root.alpha = Variables.ALPHA_OF_DISABLED_ELEMENTS
-        binding.stepHeader.stepCheckIcon.visibility = View.VISIBLE
-        binding.stepHeader.stepNumber.visibility = View.GONE
+        binding.stepHeader.stepCheckIcon.visibility = VISIBLE
+        binding.stepHeader.stepNumber.visibility = GONE
+    }
+
+    fun stepTitle(stepModel: StepModel, value: String) {
+        binding.stepHeader.stepTitle.text = value
+        stepModel.view.setTitle(value)
+        this.requestLayout()
     }
 
     private fun initStepHeader(stepModel: StepModel) {
@@ -85,8 +74,8 @@ internal class StepView : FrameLayout {
         } else {
             binding.stepHeader.wrapper.apply {
                 layoutParams = LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
+                    LayoutParams.MATCH_PARENT,
+                    LayoutParams.MATCH_PARENT
                 )
             }
             binding.stepHeader.wrapper.removeAllViews()

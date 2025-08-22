@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.RelativeLayout
+import androidx.annotation.StringRes
 import androidx.core.view.children
 import com.github.leodan11.xstepper.databinding.StepperLayoutBinding
 import com.github.leodan11.xstepper.interfaces.IStepper
@@ -34,20 +35,11 @@ class Stepper : RelativeLayout {
         init(context, attrs, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init(context, attrs, defStyleAttr, 0)
     }
 
-    constructor(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int
-    ) : super(context, attrs, defStyleAttr, defStyleRes) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
         init(context, attrs, defStyleAttr, defStyleRes)
     }
 
@@ -175,6 +167,19 @@ class Stepper : RelativeLayout {
                 stepModels[x].stepNumber = stepNumber++
             }
         }
+    }
+
+    fun setTitle(index: Int, @StringRes value: Int) {
+        this.setTitle(index, context.getString(value))
+    }
+
+    fun setTitle(index: Int, value: String) {
+        val view = stepViews[index]
+        view.stepTitle(stepModels[index], value)
+    }
+
+    fun stepSize() : Int {
+        return stepModels.size
     }
 
     private val iStepView = StepView.IStepView { stepModel ->
